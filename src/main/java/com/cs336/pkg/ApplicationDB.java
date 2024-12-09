@@ -10,6 +10,8 @@ public class ApplicationDB {
 		
 	}
 
+//hiiiiii	
+	
 	public Connection getConnection(){
 		
 		//Create a connection string
