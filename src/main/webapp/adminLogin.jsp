@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;">
-                    <a href="adminLogin.jsp">Administrator Login</a> | 
+                    <a href="AdminLogin.jsp">Administrator Login</a> | 
                     <a href="CustomerRepLogin.jsp">Customer Rep Login</a>
                 </td>
             </tr>
