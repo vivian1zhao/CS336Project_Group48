@@ -85,5 +85,6 @@
             </table>
 
     <a href="searchSchedules.jsp">Search Again</a>
+    <a href="home.jsp">Return Home</a>
 </body>
 </html>
