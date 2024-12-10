@@ -8,14 +8,14 @@ Group Members:
 PROJECT CHECKLIST:
 
 I. Account functionality (10 points)
-  - [] register customers
-  - [] login (for all customers, admin, customer reps)
-  - [] logout (for all customers, admin, customer reps)
+  - [X] register customers
+  - [X] login (for all customers, admin, customer reps)
+  - [X] logout (for all customers, admin, customer reps)
  
 II. Browsing and search functionality (15 points)
-  - [] search for train schedules by origin, destination, date of travel (5 points)
-  - [] browse the resulting schedules (5 points)
-      - [] see all the stops a train will make, fare etc.
+  - [X] search for train schedules by origin, destination, date of travel (5 points)
+  - [X] browse the resulting schedules (5 points)
+      - [X] see all the stops a train will make, fare etc.
   - [] sort by different criteria (by arrival time, departure time, fare) (5 points)
  
 III. Reservations (15 points)
