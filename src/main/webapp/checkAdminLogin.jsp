@@ -17,8 +17,7 @@ if (rs.next()) {
 	out.println("welcome " + userid);
 	out.println("<a href='logout.jsp'>Log out</a>");
 	response.sendRedirect("homeAdmin.jsp");
-} else {
-	out.println("Invalid password <a href='checkAdminLogin.jsp'>try again</a>");
+	out.println("Invalid password <a href='loginAdmin.jsp'>try again</a>");
 }
 
 rs.close();

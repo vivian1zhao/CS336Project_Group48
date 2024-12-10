@@ -16,7 +16,7 @@ if (rs.next()) {
 	session.setAttribute("user", userid); // username will be stored in the session
 	out.println("welcome " + userid);
 	out.println("<a href='logout.jsp'>Log out</a>");
-	response.sendRedirect("success.jsp");
+	response.sendRedirect("home.jsp");
 } else {
 	out.println("Invalid password <a href='login.jsp'>try again</a>");
 }

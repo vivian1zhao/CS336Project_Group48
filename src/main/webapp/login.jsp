@@ -7,8 +7,7 @@
 </head>
 <body>
 	<h2 style="text-align: center;">Login</h2>
-    <!-- Change the form action to directly point to TrainSearchPage.jsp Matt-->
-    <form action="TrainSearchPage.jsp" method="POST">
+    <form action="checkLoginDetails.jsp" method="POST">
         <table style="margin: 0 auto; text-align: left;">
             <tr>
                 <td>Username:</td>
@@ -31,8 +30,15 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;">
-                    <a href="register.jsp">Create an account</a>
+                	Don't have an account?
+                    <a href="register.jsp">Sign up</a>
                 </td>
+            </tr>
+            <tr>
+            	<!-- New form action to directly point to trainSearchPage.jsp Matt-->
+            	<td colspan="2" style="text-align: center;">
+            		<a href="trainSearchPage.jsp">Search trains here</a>
+            	</td>
             </tr>
         </table>
     </form>
