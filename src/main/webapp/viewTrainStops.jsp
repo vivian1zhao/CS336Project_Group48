@@ -11,6 +11,9 @@
     <% 
         String scheduleIdParam = request.getParameter("schid");
 
+        // Debugging output for scheduleIdParam
+        /* out.println("<p>Debug: Schedule ID parameter = " + scheduleIdParam + "</p>"); */
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -21,14 +24,8 @@
             String username = "root";
             String password = "cs336";
 
-            // Load the driver dynamically if not already loaded
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                out.println("<p>Error: MySQL JDBC Driver not found. Ensure you have added the appropriate library.</p>");
-                throw ex;
-            }
-
+            // Load the MySQL JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url, username, password);
 
             // SQL query to fetch train stops
@@ -39,11 +36,11 @@
                          "ORDER BY tss.stopNum";
 
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, scheduleIdParam);
+            stmt.setString(1, scheduleIdParam.trim());
             rs = stmt.executeQuery();
 
             // Check if the result set has rows
-            if (!rs.next()) {
+            if (!rs.isBeforeFirst()) {
                 out.println("<p>No stops found for the given schedule ID.</p>");
             } else {
     %>
@@ -58,7 +55,7 @@
                 </tr>
     <%
                 // Iterate through the result set
-                do {
+                while (rs.next()) {
     %>
                 <tr>
                     <td><%= rs.getString("schid") %></td>
@@ -69,7 +66,7 @@
                     <td><%= rs.getString("departureTime") %></td>
                 </tr>
     <%
-                } while (rs.next());
+                }
             }
         } catch (Exception e) {
             out.println("<p>Error: " + e.getMessage() + "</p>");
@@ -81,6 +78,6 @@
     %>
             </table>
 
-    <a href="searchTrainStops.jsp">Search Again</a>
+    <a href="searchSchedules.jsp">Search Again</a>
 </body>
 </html>

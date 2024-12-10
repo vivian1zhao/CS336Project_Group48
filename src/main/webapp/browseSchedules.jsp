@@ -28,7 +28,7 @@
             conn = DriverManager.getConnection(url, username, password);
 
             // SQL query to fetch matching train schedules
-            String sql = "SELECT ts.tid, tl.tlname, ts.origin, ts.destination, ts.departure, ts.arrival, ts.traveltime, ts.fare " +
+            String sql = "SELECT ts.schid, ts.tid, tl.tlname, ts.origin, ts.destination, ts.departure, ts.arrival, ts.traveltime, ts.fare " +
                          "FROM trainSchedule ts " +
                          "JOIN transitLine tl ON ts.tlid = tl.tlid " +
                          "WHERE ts.origin = ? AND ts.destination = ?";
@@ -68,7 +68,7 @@
                     <td><%= rs.getString("traveltime") %></td>
                     <td><%= rs.getString("fare") %></td>
                     <td>
-                        <a href="viewTrainStops.jsp?schid=<%= rs.getString("tid") %>">View Stops</a>
+                        <a href="viewTrainStops.jsp?schid=<%= rs.getString("schid") %>">View Stops</a>
                     </td>
                 </tr>
     <%
