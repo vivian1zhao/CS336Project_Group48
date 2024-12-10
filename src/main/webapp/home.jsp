@@ -15,7 +15,7 @@
     %>
         <p>Welcome, <%= session.getAttribute("user") %></p>
         <!-- Button to redirect to the search page -->
-        <form action="trainSearchPage.jsp" method="GET">
+        <form action="searchSchedules.jsp" method="GET">
             <button type="submit">Go to Search Page</button>
         </form>
         <br />
