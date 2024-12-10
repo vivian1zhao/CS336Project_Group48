@@ -5,19 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Reservation</title>
+<style>
+	body {
+        text-align: center;
+    }
+	form {
+        display: inline-block;
+        text-align: left;
+    }
+    h1 {
+        text-align: center;
+    }
+    input[type="submit"] {
+    	display: block;
+        margin: 0 auto;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
+
         <h1>Ticket Reservation</h1>
         <form action="submitReservation.jsp" method="post">
             <label for="origin">Origin:</label>
             <input type="text" id="origin" name="origin" placeholder="Enter Origin" required>
 
+			<br>
+			
             <label for="destination">Destination:</label>
             <input type="text" id="destination" name="destination" placeholder="Enter Destination" required>
 
+			<br>
+			
             <input type="submit" value="Reserve Ticket">
         </form>
-    </div>
+
 </body>
 </html>
