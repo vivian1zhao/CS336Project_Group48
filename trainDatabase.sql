@@ -58,6 +58,25 @@ foreign key(`originStation`) references `station`(`sid`) on delete cascade on up
 foreign key(`destinationStation`) references `station`(`sid`) on delete cascade on update cascade,
 foreign key(`tid`) references `train`(`tid`) on delete cascade on update cascade);
 
+drop table if exists `transitStops`;
+create table `transitStops` (
+`tlid` int,
+`sid` int, 
+primary key (`tlid`, `sid`),
+foreign key (`tlid`) references `transitline`(`tlid`) on delete cascade on update cascade,
+foreign key (`sid`) references `station`(`sid`) on delete cascade on update cascade);
+
+drop table if exists `trainScheduleStops`;
+create table `trainScheduleStops` (
+`schid` int,
+`sid` int, 
+`tlid` int,
+`stopNum` int,  
+`departureTime` time,
+primary key (`schid`, `sid`),
+foreign key (`schid`) references `trainSchedule`(`schid`) on delete cascade on update cascade,
+foreign key (`sid`) references `station`(`sid`) on delete cascade on update cascade);
+
 drop table if exists `employeeAdmin`;
 create table `employeeAdmin` (
 `ssn` int,
@@ -135,6 +154,76 @@ values
 (10, 5, 3877, 'Hoboken', 'Hackettstown', 5, '05:05:00', '07:01:00', '114 minutes', '$13.80'),
 (11, 6, 3878, 'Suffern', 'Hoboken', 5, '05:13:00', '06:11:00', '58 minutes', '$11.00'),
 (12, 6, 3879, 'Hoboken', 'Suffern', 5, '05:48:00', '06:56:00', '68 minutes', '$11.00');
+
+insert into `transitStops`
+values
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 6), (2, 7), (2, 8), (2, 9), (2, 10), (3, 11), (3, 12), (3, 13), (3, 14), (3, 15), (3, 16), 
+(4, 17), (4, 18), (4, 19), (4, 20), (4, 21), (5, 22), (5, 23), (5, 24), (5, 25), (5, 26), (6, 27), (6, 28), (6, 29), (6, 30), (6, 31);
+
+insert into `trainScheduleStops`
+values
+(1, 1, 1, 1, '23:23:00'),
+(1, 2, 1, 2, '23:39:00'),
+(1, 3, 1, 3, '23:55:00'),
+(1, 4, 1, 4, '00:11:00'),
+(1, 5, 1, 5, '00:25:00'),
+(2, 5, 1, 1, '23:06:00'),
+(2, 4, 1, 2, '23:27:00'),
+(2, 3, 1, 3, '23:58:00'),
+(2, 2, 1, 4, '00:19:00'),
+(2, 1, 1, 5, '00:55:00'),
+(3, 6, 2, 1, '23:36:00'),
+(3, 7, 2, 2, '23:48:00'),
+(3, 8, 2, 3, '00:00:00'),
+(3, 9, 2, 4, '00:12:00'),
+(3, 10, 2, 5, '00:38:00'),
+(4, 10, 2, 1, '23:08:00'),
+(4, 9, 2, 2, '23:19:00'),
+(4, 8, 2, 3, '23:34:00'),
+(4, 7, 2, 4, '23:49:00'),
+(4, 6, 2, 5, '00:03:00'),
+(5, 11, 3, 1, '23:32:00'),
+(5, 12, 3, 2, '23:59:00'),
+(5, 13, 3, 3, '00:27:00'),
+(5, 14, 3, 4, '00:53:00'),
+(5, 15, 3, 5, '01:16:00'),
+(5, 16, 3, 6, '01:55:00'),
+(6, 16, 3, 1, '23:18:00'), 
+(6, 15, 3, 2, '23:50:00'),
+(6, 14, 3, 3, '00:12:00'),
+(6, 13, 3, 4, '00:44:00'),
+(6, 12, 3, 5, '01:15:00'),
+(6, 11, 3, 6, '01:38:00'),
+(7, 17, 4, 1, '06:42:00'),
+(7, 18, 4, 2, '07:03:00'),
+(7, 19, 4, 3, '07:45:00'),
+(7, 20, 4, 4, '08:02:00'),
+(7, 21, 4, 5, '08:34:00'),
+(8, 21, 4, 1, '06:45:00'), 
+(8, 20, 4, 2, '07:05:00'),
+(8, 19, 4, 3, '07:47:00'),
+(8, 18, 4, 4, '08:05:00'),
+(8, 17, 4, 5, '08:34:00'),
+(9, 22, 5, 1, '05:04:00'), 
+(9, 23, 5, 2, '05:35:00'),
+(9, 24, 5, 3, '06:01:00'),
+(9, 25, 5, 4, '06:29:00'),
+(9, 26, 5, 5, '07:00:00'),
+(10, 26, 5, 1, '05:05:00'),
+(10, 25, 5, 2, '05:38:00'),
+(10, 24, 5, 3, '06:02:00'),
+(10, 23, 5, 4, '06:31:00'),
+(10, 22, 5, 5, '07:01:00'),
+(11, 27, 6, 1, '05:13:00'), 
+(11, 28, 6, 2, '05:26:00'),
+(11, 29, 6, 3, '05:43:00'),
+(11, 30, 6, 4, '05:59:00'),
+(11, 31, 6, 5, '06:11:00'),
+(12, 31, 6, 1, '05:48:00'), 
+(12, 30, 6, 2, '06:09:00'),
+(12, 29, 6, 3, '06:25:00'),
+(12, 28, 6, 4, '06:38:00'),
+(12, 27, 6, 5, '06:56:00');
 
 insert into `employeeAdmin` 
 values
