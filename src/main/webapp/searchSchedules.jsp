@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -20,6 +19,7 @@
 
         <input type="submit" value="Search">
     </form>
+    <!-- Add a back button -->
+    <button onclick="window.location.href='home.jsp';">Back to Home</button>
 </body>
 </html>
-    
