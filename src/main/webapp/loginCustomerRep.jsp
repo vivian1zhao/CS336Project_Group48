@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2 style="text-align: center;">Customer Representative Login</h2>
-    <form action="checkAdminLogin.jsp" method="POST">
+    <form action="checkCustomerRepLogin.jsp" method="POST">
         <table style="margin: 0 auto; text-align: left;">
             <tr>
                 <td>Username:</td>
@@ -24,6 +24,11 @@
                 </td>
             </tr>
         </table>
+    </form>
+    
+     <!-- Button to go back to the original login.jsp -->
+    <form action="login.jsp" method="GET">
+        <button type="submit" class="back-button">Back to Main Login</button>
     </form>
 </body>
 </html>

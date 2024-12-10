@@ -1,26 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="java.sql.*" %>
+<%
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
 
-String userid = request.getParameter("username");
-String pwd = request.getParameter("password");
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
 
-Class.forName("com.mysql.jdbc.Driver");
-Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs336project","root","cs336");
+    try {
+        String dbUrl = "jdbc:mysql://localhost:3306/TrainDatabase";
+        String dbUser = "root";
+        String dbPassword = "cs336";
 
-Statement stmt = con.createStatement();
-ResultSet rs;
-rs = stmt.executeQuery("select * from user where username='" + userid + "' and password='" + pwd + "'");
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
-if (rs.next()) {
-	session.setAttribute("user", userid); // username will be stored in the session
-	out.println("welcome " + userid);
-	out.println("<a href='logout.jsp'>Log out</a>");
-	response.sendRedirect("homeAdmin.jsp");
-	out.println("Invalid password <a href='loginAdmin.jsp'>try again</a>");
-}
+        String sql = "SELECT * FROM employeeAdmin WHERE username = ? AND password = ?";
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1, username);
+        stmt.setString(2, password);
 
-rs.close();
-stmt.close();
-con.close();
+        rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            // Successful login: set the session attribute for the user
+            session.setAttribute("user", username);
+            response.sendRedirect("homeAdmin.jsp");
+        } else {
+            // Failed login, show error message
+            out.println("<p style='color:red;'>Invalid username or password. Please try again.</p>");
+            out.println("<a href='loginAdmin.jsp'>Go Back to Login</a>");
+        }
+    } catch (Exception e) {
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    } finally {
+        if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
+        if (stmt != null) try { stmt.close(); } catch (SQLException ignore) {}
+        if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
+    }
 %>

@@ -25,5 +25,10 @@
             </tr>
         </table>
     </form>
+    
+     <!-- Button to go back to the original login.jsp -->
+    <form action="login.jsp" method="GET">
+        <button type="submit" class="back-button">Back to Main Login</button>
+    </form>
 </body>
 </html>
