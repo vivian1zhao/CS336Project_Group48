@@ -34,12 +34,12 @@ foreign key(`tid`) references `train`(`tid`) on delete cascade on update cascade
 
 drop table if exists `customer`;
 create table `customer` (
-`cid` int primary key,
+`cid` int primary key auto_increment,
 `firstname` varchar(30),
 `lastname` varchar(30),
-`email` varchar(30),
-`username` varchar(30),
-`password` varchar(30));
+`email` varchar(30) unique not null,
+`username` varchar(30) unique not null,
+`password` varchar(30) not null);
 
 drop table if exists `reservationData`;
 create table `reservationData` (
