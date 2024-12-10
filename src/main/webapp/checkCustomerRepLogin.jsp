@@ -16,13 +16,12 @@ if (rs.next()) {
 	session.setAttribute("user", userid); // username will be stored in the session
 	out.println("welcome " + userid);
 	out.println("<a href='logout.jsp'>Log out</a>");
-	response.sendRedirect("success.jsp");
+	response.sendRedirect("homeCustomerRep.jsp");
 } else {
-	out.println("Invalid password <a href='login.jsp'>try again</a>");
+	out.println("Invalid password <a href='loginCustomerRep.jsp'>try again</a>");
 }
 
 rs.close();
 stmt.close();
 con.close();
 %>
-
