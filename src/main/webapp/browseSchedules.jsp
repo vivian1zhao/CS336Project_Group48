@@ -28,7 +28,7 @@
             conn = DriverManager.getConnection(url, username, password);
 
             // SQL query to fetch matching train schedules
-            String sql = "SELECT ts.tid, tl.tlname, ts.origin, ts.destination, ts.departure, ts.arrival, ts.traveltime, ts.fare " +
+            String sql = "SELECT ts.schid, ts.tid, tl.tlname, ts.origin, ts.destination, ts.departure, ts.arrival, ts.traveltime, ts.fare " +
                          "FROM trainSchedule ts " +
                          "JOIN transitLine tl ON ts.tlid = tl.tlid " +
                          "WHERE ts.origin = ? AND ts.destination = ?";
@@ -39,7 +39,7 @@
             rs = stmt.executeQuery();
 
             if (!rs.isBeforeFirst()) {
-                out.println("<p>No train schedules found for the given criteria.</p>");
+            out.println("<p>No train schedules found for the given criteria.</p>");
             } else {
     %>
             <table border="1">
@@ -52,10 +52,12 @@
                     <th>Arrival Time</th>
                     <th>Travel Time</th>
                     <th>Fare</th>
+                    <th>Stops</th>
                 </tr>
     <%
                 while (rs.next()) {
-    %>
+                
+                %>
                 <tr>
                     <td><%= rs.getString("tid") %></td>
                     <td><%= rs.getString("tlname") %></td>
@@ -65,6 +67,9 @@
                     <td><%= rs.getString("arrival") %></td>
                     <td><%= rs.getString("traveltime") %></td>
                     <td><%= rs.getString("fare") %></td>
+                    <td>
+                        <a href="viewTrainStops.jsp?schid=<%= rs.getString("schid") %>">View Stops</a>
+                    </td>
                 </tr>
     <%
                 }
