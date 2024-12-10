@@ -5,7 +5,7 @@ Group Members:
 - Vivian Zhao (vz57)
 
 
-CHECKLIST:
+PROJECT CHECKLIST:
 
 I. Account functionality (10 points)
   - [] register customers
