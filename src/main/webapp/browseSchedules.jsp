@@ -20,7 +20,7 @@
 
         try {
             // Database connection
-            String url = "jdbc:mysql://localhost:3306/TrainDatabase";
+            String url = "jdbc:mysql://localhost:3306/trainDatabase";
             String username = "root";
             String password = "8718910jlJL*"; // 
 

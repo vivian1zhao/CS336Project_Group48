@@ -17,7 +17,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourDatabase", "root", "yourPassword");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/trainDatabase", "root", "cs336");
         PreparedStatement ps = con.prepareStatement("SELECT * FROM trains WHERE origin=? AND destination=? AND travel_date=?");
         ps.setString(1, origin);
         ps.setString(2, destination);
