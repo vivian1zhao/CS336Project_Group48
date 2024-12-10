@@ -22,7 +22,7 @@
             // Database connection
             String url = "jdbc:mysql://localhost:3306/trainDatabase";
             String username = "root";
-            String password = "8718910jlJL*"; // 
+            String password = "cs336"; // 
 
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url, username, password);
