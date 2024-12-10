@@ -5,6 +5,7 @@
     <title>Home</title>
 </head>
 <body>
+<h2>Home</h2>
     <%
     if (session.getAttribute("user") == null) {
     %>
@@ -17,6 +18,9 @@
         <!-- Button to redirect to the search page -->
         <form action="searchSchedules.jsp" method="GET">
             <button type="submit">Go to Search Page</button>
+        </form>
+        <form action="reservations.jsp" method="GET">
+            <button type="submit">Go to Reservations Page</button>
         </form>
         <br />
         <a href="logout.jsp">Log out</a>
