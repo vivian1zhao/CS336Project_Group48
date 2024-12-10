@@ -7,7 +7,8 @@
 </head>
 <body>
 	<h2 style="text-align: center;">Login</h2>
-    <form action="checkCustomerRepLogin.jsp" method="POST">
+    <!-- Change the form action to directly point to TrainSearchPage.jsp Matt-->
+    <form action="TrainSearchPage.jsp" method="POST">
         <table style="margin: 0 auto; text-align: left;">
             <tr>
                 <td>Username:</td>
@@ -37,4 +38,3 @@
     </form>
 </body>
 </html>
-
