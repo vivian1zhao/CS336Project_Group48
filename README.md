@@ -6,7 +6,9 @@ Group 48 Members:
 
 
 Admin username: vzhao
+
 Admin password: vzhao
+
 (Note: To add a customer representative, first log into Admin then add Customer Rep information.)
 
 
