@@ -24,7 +24,7 @@
             <button type="submit">Go to Search Page</button>
         </form>
         <form action="reservations.jsp" method="GET">
-            <button type="submit">Go to Reservations Page</button>
+            <button type="submit">Make a Reservation</button>
         </form>
         
          <!-- Button to redirect to the view reservations page -->
