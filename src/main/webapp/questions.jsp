@@ -3,52 +3,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Questions and Answers</title>
+    <title>Answer Questions</title>
 </head>
 <body>
-<h2>Questions and Answers</h2>
-
+<h2>Answer Questions</h2>
 <%
     Connection conn = null;
-    PreparedStatement pstmt = null;
+    Statement stmt = null;
     ResultSet rs = null;
-    
     try {
-        // Establish a connection
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trainDatabase", "root", "cs336");
-        
-        // Prepare SQL query
-        String sql = "SELECT q.qtext AS question, a.atext AS answer FROM questions q LEFT JOIN answers a ON q.qid = a.qid ORDER BY q.qid DESC";
-        pstmt = conn.prepareStatement(sql);
-        
-        // Execute query
-        rs = pstmt.executeQuery();
-
-        // Check if there are results
-        if (!rs.isBeforeFirst()) {
-            out.println("<p>No questions and answers found.</p>");
-        } else {
-            // Display results in a list
-            out.println("<ul>");
-            while (rs.next()) {
-                String question = rs.getString("question");
-                String answer = rs.getString("answer");
-                out.println("<li><strong>Q:</strong> " + question + "<br/><strong>A:</strong> " + (answer != null ? answer : "Awaiting response") + "</li>");
-            }
-            out.println("</ul>");
+        stmt = conn.createStatement();
+        String sql = "SELECT qid, qtext FROM questions";
+        rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            int qid = rs.getInt("qid");
+            String question = rs.getString("qtext");
+%>
+<div>
+    <p><strong>Question:</strong> <%= question %></p>
+    <form action="submitAnswer.jsp" method="POST">
+        <input type="hidden" name="qid" value="<%= qid %>">
+        <textarea name="answer" required placeholder="Type your answer here..."></textarea>
+        <button type="submit">Submit Answer</button>
+    </form>
+</div>
+<%
         }
     } catch (SQLException e) {
-        out.println("Error connecting to the database: " + e.getMessage());
+        out.println("SQL Error: " + e.getMessage());
     } finally {
-        // Clean up database resources
-        try { if (rs != null) rs.close(); } catch (SQLException e) { /* Ignored */ }
-        try { if (pstmt != null) pstmt.close(); } catch (SQLException e) { /* Ignored */ }
-        try { if (conn != null) conn.close(); } catch (SQLException e) { /* Ignored */ }
+        if (rs != null) try { rs.close(); } catch (SQLException e) { /* ignored */ }
+        if (stmt != null) try { stmt.close(); } catch (SQLException e) { /* ignored */ }
+        if (conn != null) try { conn.close(); } catch (SQLException e) { /* ignored */ }
     }
-  	
 %>
-<form action="home.jsp" method="POST">
-            <button type="submit">go back</button>
-        </form>
 </body>
 </html>
