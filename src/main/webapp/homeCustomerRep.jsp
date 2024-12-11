@@ -7,6 +7,20 @@
 </head>
 <body>
 <h2>Customer Representative Dashboard</h2>
+</head>
+<body>
+
+<!-- This goes in homeCustomerRep.jsp or wherever you initiate the search -->
+<form action="customerRepSearchResult.jsp" method="GET">
+    <input type="text" name="station" placeholder="Enter station name..." required>
+    <select name="searchType">
+        <option value="origin">Origin</option>
+        <option value="destination">Destination</option>
+    </select>
+    <button type="submit">Search Schedules</button>
+</form>
+
+
 <%
     Connection conn = null;
     Statement stmt = null;
