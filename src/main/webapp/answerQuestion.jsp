@@ -24,7 +24,6 @@
     <p><strong>Question:</strong> <%= question %></p>
     <form action="submitAnswer.jsp" method="POST">
         <input type="hidden" name="qid" value="<%= qid %>">
-        <textarea name="answer" required placeholder="Type your answer here..."></textarea>
         <button type="submit">Submit Answer</button>
     </form>
 </div>
