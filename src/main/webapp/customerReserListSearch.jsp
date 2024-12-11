@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Transit Line Customers</h1>
-	<form action="getCustomerReserList.jsp" method="get">
+	<form action="CustomerReserList.jsp" method="get">
 		<label for="Transit Line">Transit Line:</label>
 		<input type="text" id="transit" name="transit" placeholder="Enter Transit Line" required>
 		<input type="submit" value="Search">
