@@ -79,7 +79,7 @@ foreign key (`sid`) references `station`(`sid`) on delete cascade on update casc
 
 drop table if exists `employeeAdmin`;
 create table `employeeAdmin` (
-`ssn` int,
+`ssn` int primary key,
 `firstname` varchar(30),
 `lastname` varchar(30),
 `username` varchar(30),
@@ -87,11 +87,27 @@ create table `employeeAdmin` (
 
 drop table if exists `employeeCustomerRep`;
 create table `employeeCustomerRep` (
-`ssn` int,
+`ssn` int primary key,
 `firstname` varchar(30),
 `lastname` varchar(30),
 `username` varchar(30),
 `password` varchar(30));
+
+drop table if exists `questions`;
+create table `questions` (
+`qid` int auto_increment primary key,
+`cid` int not null,
+`qtext` text not null,
+foreign key (`cid`) references `customer`(`cid`) on delete cascade on update cascade);
+
+drop table if exists `answers`;
+create table `answers` (
+`aid` int auto_increment primary key,
+`qid` int not null,
+`ssn` int not null,
+`atext` text not null,
+foreign key (`qid`) references `questions`(`qid`) on delete cascade on update cascade,
+foreign key (`ssn`) references `employeeCustomerRep`(`ssn`) on delete cascade on update cascade);
 
 insert into `train` 
 values
