@@ -73,5 +73,8 @@
             if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
         }
     %>
+    
+    <br />
+    <a href="homeAdmin.jsp">Back to Admin Home</a>
 </body>
 </html>
