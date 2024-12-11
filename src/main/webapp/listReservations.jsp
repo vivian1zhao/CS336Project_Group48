@@ -9,6 +9,20 @@
 </head>
 <body>
     <h2>List of Reservations</h2>
+    
+    <!-- Sorting Form -->
+    <form action="" method="get">
+        <input type="hidden" name="origin" value="<%= request.getParameter("origin") %>">
+        <input type="hidden" name="destination" value="<%= request.getParameter("destination") %>">
+        <label for="sort">Sort by:</label>
+        <select name="sort" onchange="this.form.submit()">
+        	<option value="">Select...</option>
+            <option value="arrival">Arrival Time</option>
+            <option value="departure">Departure Time</option>
+            <option value="fare">Fare</option>
+        </select>
+    </form>
+    
     <%
 	    Connection conn = null;
 	    Statement stmt = null;

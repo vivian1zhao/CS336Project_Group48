@@ -14,6 +14,7 @@
         <input type="hidden" name="destination" value="<%= request.getParameter("destination") %>">
         <label for="sort">Sort by:</label>
         <select name="sort" onchange="this.form.submit()">
+        	<option value="">Select...</option>
             <option value="arrival">Arrival Time</option>
             <option value="departure">Departure Time</option>
             <option value="fare">Fare</option>

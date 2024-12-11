@@ -42,12 +42,10 @@
 	</form> 
         <!-- Browse Questions and Answers -->
         <h4>Recently Answered Questions</h4>
-        <ul>
         <form action="questions.jsp" method="POST">
             <button type="submit">View Asked Questions</button>
         </form>
-            
-        </ul>
+         
         
         <br />
         <a href="logout.jsp">Log out</a>
