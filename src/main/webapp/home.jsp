@@ -26,6 +26,12 @@
         <form action="reservations.jsp" method="GET">
             <button type="submit">Go to Reservations Page</button>
         </form>
+        
+         <!-- Button to redirect to the view reservations page -->
+        <form action="viewReservations.jsp" method="GET">
+            <button type="submit">View My Reservations</button>
+        </form>
+        
         <br />
         <a href="logout.jsp">Log out</a>
 
