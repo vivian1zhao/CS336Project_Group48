@@ -34,13 +34,25 @@
 
 <br>
 
+    <h2>Train Reservations for Transit Line:</h2>
 
-<h2>Transit Line Customers</h2>
-	<form action="getCustomerReserList.jsp" method="get">
-		<label for="Transit Line">Transit Line:</label>
-		<input type="text" id="transit" name="transit" placeholder="Enter Transit Line" required>
-		<input type="submit" value="Search">
-	</form>
+    <!-- Form to select a transit line -->
+    <form method="get" action="getCustomerReserList.jsp">
+        <label for="transitLine">Select Transit Line:</label>
+        <select name="transitLine">
+            <option value="Northeast Corridor">Northeast Corridor</option>
+            <option value="Raritan Valley">Raritan Valley</option>
+            <option value="North Jersey Coast">North Jersey Coast</option>
+            <option value="Morris & Essex">Morris & Essex</option>
+            <option value="Montclair-Boonton">Montclair-Boonton</option>
+            <option value="Main-Bergen County">Main-Bergen County</option>
+        </select>
+        <input type="submit" value="Search"/>
+    </form>
+
+
+</body>
+</html>
 	
 <br>
 
