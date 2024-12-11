@@ -38,8 +38,8 @@ IV. Admin functions (30 points)
       - [X] add, edit and delete information for a customer representative (9 points)
       - [X] obtain sales reports per month (3 points)
       - [X] produce a list of reservations: (5 points)
-          - [] by transit line
-          - [] by customer name
+          - [X] by transit line
+          - [X] by customer name
       - [] produce a listing of revenue per: (5 points)
           - [] transit line
           - [] customer name
