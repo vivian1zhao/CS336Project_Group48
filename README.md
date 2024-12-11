@@ -14,7 +14,7 @@ Admin password: vzhao
 
 
 
-PROJECT CHECKLIST:
+**PROJECT CHECKLIST:**
 
 I. Account functionality (10 points)
   - [X] register customers
