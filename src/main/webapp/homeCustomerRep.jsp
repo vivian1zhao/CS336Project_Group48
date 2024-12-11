@@ -7,10 +7,8 @@
 </head>
 <body>
 <h2>Customer Representative Dashboard</h2>
-</head>
-<body>
 
-<!-- This goes in homeCustomerRep.jsp or wherever you initiate the search -->
+<!-- Search feature -->
 <form action="customerRepSearchResult.jsp" method="GET">
     <input type="text" name="station" placeholder="Enter station name..." required>
     <select name="searchType">
@@ -20,7 +18,6 @@
     <button type="submit">Search Schedules</button>
 </form>
 
-
 <%
     Connection conn = null;
     Statement stmt = null;
@@ -28,15 +25,15 @@
     try {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trainDatabase", "root", "cs336");
         stmt = conn.createStatement();
-        String sql = "SELECT id, question FROM questions WHERE answered = FALSE";
+        String sql = "SELECT qid, qtext FROM questions WHERE answered = FALSE";
         rs = stmt.executeQuery(sql);
         
         while (rs.next()) {
 %>
         <div>
-            <p><strong>Question:</strong> <%= rs.getString("question") %></p>
+            <p><strong>Question:</strong> <%= rs.getString("qtext") %></p>
             <form action="answerQuestion.jsp" method="POST">
-                <input type="hidden" name="id" value="<%= rs.getInt("id") %>">
+                <input type="hidden" name="qid" value="<%= rs.getInt("qid") %>">
                 <textarea name="answer" required placeholder="Type your answer here..."></textarea>
                 <button type="submit">Submit Answer</button>
             </form>
@@ -51,5 +48,7 @@
         try { if (conn != null) conn.close(); } catch (Exception e) {}
     }
 %>
+<br>
+<a href="login.jsp">Log Out</a>
 </body>
 </html>
