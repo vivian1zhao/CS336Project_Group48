@@ -1,4 +1,4 @@
-Group 48 Members: 
+**Group 48 Members: **
 - Vincent Espana (vee7)
 - Sofia Wolfel (smw318)
 - Yanzhen Yun (yy656)
