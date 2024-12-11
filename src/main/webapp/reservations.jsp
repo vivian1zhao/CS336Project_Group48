@@ -33,6 +33,7 @@
 
         <input type="submit" value="Reserve Ticket">
     </form>
-
+	
+	<button onclick="window.location.href='home.jsp';">Back to Home</button>
 </body>
 </html>
