@@ -34,7 +34,7 @@ foreign key(`tid`) references `train`(`tid`) on delete cascade on update cascade
 
 drop table if exists `customer`;
 create table `customer` (
-`cid` int primary key auto_increment,
+`cid` int auto_increment primary key,
 `firstname` varchar(30),
 `lastname` varchar(30),
 `email` varchar(30) unique not null,
@@ -95,7 +95,7 @@ create table `employeeCustomerRep` (
 
 insert into `train` 
 values
-(3868), (3869), (3870), (3871), (3872), (3873), (3874), (3875), (3876), (3877), (3878), (3879);
+(3868), (3869), (3870), (3871), (3872), (3873), (3874), (3875), (3876), (3877), (3878), (3879), (3880), (3881);
 
 insert into `station`
 values
@@ -153,7 +153,9 @@ values
 (9, 5, 3876, 'Hackettstown', 'Hoboken', 5, '05:04:00', '07:00:00', '114 minutes', '$13.80'),
 (10, 5, 3877, 'Hoboken', 'Hackettstown', 5, '05:05:00', '07:01:00', '114 minutes', '$13.80'),
 (11, 6, 3878, 'Suffern', 'Hoboken', 5, '05:13:00', '06:11:00', '58 minutes', '$11.00'),
-(12, 6, 3879, 'Hoboken', 'Suffern', 5, '05:48:00', '06:56:00', '68 minutes', '$11.00');
+(12, 6, 3879, 'Hoboken', 'Suffern', 5, '05:48:00', '06:56:00', '68 minutes', '$11.00'),
+(13, 1, 3880, 'Trenton Transit Center', 'Penn Station New York', 5,'11:23:00', '12:22:00', '90 minutes', '$19.25'),
+(14, 1, 3881, 'Trenton Transit Center', 'Penn Station New York', 5, '05:23:00', '07:27:00', '94 minutes', '$19.25');
 
 insert into `transitStops`
 values
@@ -223,7 +225,18 @@ values
 (12, 30, 6, 2, '06:09:00'),
 (12, 29, 6, 3, '06:25:00'),
 (12, 28, 6, 4, '06:38:00'),
-(12, 27, 6, 5, '06:56:00');
+(12, 27, 6, 5, '06:56:00'),
+(13, 1, 1, 1, '11:23:00'),
+(13, 2, 1, 2, '11:39:00'),
+(13, 3, 1, 3, '11:55:00'),
+(13, 4, 1, 4, '12:11:00'),
+(13, 5, 1, 5, '12:22:00'),
+(14, 1, 1, 1, '05:23:00'),
+(14, 2, 1, 2, '05:39:00'),
+(14, 3, 1, 3, '05:55:00'),
+(14, 4, 1, 4, '06:11:00'),
+(14, 5, 1, 5, '07:27:00');
+
 
 insert into `employeeAdmin` 
 values
