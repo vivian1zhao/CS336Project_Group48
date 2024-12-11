@@ -6,7 +6,7 @@
     <title>Home</title>
 </head>
 <body>
-<h2>Home</h2>
+	<h2>Home</h2>
     <%
     if (session.getAttribute("user") == null) {
     %>
@@ -36,11 +36,10 @@
         <h3>Customer Q&A Section</h3>
         
         
-        <form action="submitQuestions.jsp" method="POST">
+	<form action="submitQuestions.jsp" method="POST">
     <button type="submit">Submit Question</button>
-</form>
-
-        
+	
+	</form> 
         <!-- Browse Questions and Answers -->
         <h4>Recently Answered Questions</h4>
         <ul>
