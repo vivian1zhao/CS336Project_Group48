@@ -16,7 +16,7 @@ II. Browsing and search functionality (15 points)
   - [X] search for train schedules by origin, destination, date of travel (5 points)
   - [X] browse the resulting schedules (5 points)
       - [X] see all the stops a train will make, fare etc.
-  - [] sort by different criteria (by arrival time, departure time, fare) (5 points)
+  - [X] sort by different criteria (by arrival time, departure time, fare) (5 points)
  
 III. Reservations (15 points)
   - [] a customer should be able to make a reservation for a specific route (round-trip/one way) (5 points)
@@ -25,17 +25,17 @@ III. Reservations (15 points)
   - [] view current and past reservations with their details (separately). (5 points)
  
 IV. Admin functions (30 points)
-  - [] Admin (create an admin account ahead of time)  
-      - [] add, edit and delete information for a customer representative (9 points)
-      - [] obtain sales reports per month (3 points)
-      - [] produce a list of reservations: (5 points)
+  - [X] Admin (create an admin account ahead of time)  
+      - [X] add, edit and delete information for a customer representative (9 points)
+      - [X] obtain sales reports per month (3 points)
+      - [X] produce a list of reservations: (5 points)
           - [] by transit line
           - [] by customer name
       - [] produce a listing of revenue per: (5 points)
           - [] transit line
           - [] customer name
       - [] best customer (4 points)
-      - [] best 5 most active transit lines (4 points)
+      - [X] best 5 most active transit lines (4 points)
  
 VI. Customer representative: (30 points)
   - [] edit and delete information for train schedules (6 points)
