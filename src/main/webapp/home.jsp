@@ -49,7 +49,7 @@
         <ul>
             <%
                 try {
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourDatabase", "user", "password");
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trainDatabase", "root", "cs336");
                     stmt = conn.createStatement();
                     rs = stmt.executeQuery("SELECT question, answer FROM questions WHERE answered = TRUE");
                     while (rs.next()) {

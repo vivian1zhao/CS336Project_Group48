@@ -12,7 +12,7 @@
     Statement stmt = null;
     ResultSet rs = null;
     try {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourDatabase", "user", "password");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trainDatabase", "root", "cs336");
         stmt = conn.createStatement();
         String sql = "SELECT id, question FROM questions WHERE answered = FALSE";
         rs = stmt.executeQuery(sql);
