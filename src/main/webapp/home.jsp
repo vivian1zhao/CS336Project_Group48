@@ -31,9 +31,6 @@
         <form action="viewReservations.jsp" method="GET">
             <button type="submit">View My Reservations</button>
         </form>
-        
-        <br />
-        <a href="logout.jsp">Log out</a>
 
         <!-- Q&A Section -->
         <h3>Customer Q&A Section</h3>
@@ -52,6 +49,9 @@
         </form>
             
         </ul>
+        
+        <br />
+        <a href="logout.jsp">Log out</a>
     <%
     }
     %>

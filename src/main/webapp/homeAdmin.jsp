@@ -9,7 +9,7 @@
         if (session.getAttribute("user") == null) {
     %>
         <p>You are not logged in</p>
-        <a href="loginAdmin.jsp">Please Login</a>
+        <a href="loginAdmin.jsp?referrer=admin">Please Login</a>
     <%
         } else {
             String username = (String) session.getAttribute("user");
@@ -20,10 +20,10 @@
             <form action="searchSchedules.jsp" method="GET">
                 <button type="submit">Go to Search Page</button>
             </form>
-            <a href="manageReps.jsp">Manage Representatives</a>
-            <a href="monthlySalesReport.jsp">View Monthly Sales Report</a>
-            <a href="listReservations.jsp">List Reservations</a>
-            <a href="activeTransitLines.jsp">Active Transit Lines</a>
+            <br><a href="manageReps.jsp">Manage Representatives</a>
+            <br><a href="monthlySalesReport.jsp">View Monthly Sales Report</a>
+            <br><a href="listReservations.jsp">List Reservations</a>
+            <br><a href="activeTransitLines.jsp">Active Transit Lines</a>
         </div>
 
         <div class="logout">

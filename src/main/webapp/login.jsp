@@ -34,12 +34,6 @@
                     <a href="register.jsp">Sign up</a>
                 </td>
             </tr>
-            <tr>
-            	<!-- New form action to directly point to trainSearchPage.jsp Matt-->
-            	<td colspan="2" style="text-align: center;">
-            		<a href="trainSearchPage.jsp">Search trains here</a>
-            	</td>
-            </tr>
         </table>
     </form>
 </body>
