@@ -40,14 +40,14 @@ IV. Admin functions (30 points)
       - [X] produce a list of reservations: (5 points)
           - [X] by transit line
           - [X] by customer name
-      - [] produce a listing of revenue per: (5 points)
-          - [] transit line
-          - [] customer name
-      - [] best customer (4 points)
+      - [X] produce a listing of revenue per: (5 points)
+          - [X] transit line
+          - [X] customer name
+      - [X] best customer (4 points)
       - [X] best 5 most active transit lines (4 points)
  
 VI. Customer representative: (30 points)
-  - [] edit and delete information for train schedules (6 points)
+  - [X] edit and delete information for train schedules (6 points)
   - [X] customers browse questions and answers (4 points)
   - [x] customers search questions by keywords (4 points)
   - [x] customers send a question to the customer service (3 points)
