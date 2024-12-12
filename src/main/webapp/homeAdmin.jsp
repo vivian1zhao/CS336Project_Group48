@@ -25,6 +25,8 @@
             <br><a href="listReservations.jsp">List Reservations</a>
             <br><a href="activeTransitLines.jsp">Active Transit Lines</a>
             <br><a href="bestCustomer.jsp">Best Customers</a>
+            <br><a href="revenue.jsp">Revenue</a>
+            
             
         </div>
 
