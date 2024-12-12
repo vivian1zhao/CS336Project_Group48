@@ -22,10 +22,10 @@
     </form>
     
     <%
-	    Connection conn = null;
-	    Statement stmt = null;
-	    ResultSet rs = null;
-    
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
         try {
             String url = "jdbc:mysql://localhost:3306/TrainDatabase";
             String dbUsername = "root";
@@ -36,7 +36,7 @@
             stmt = conn.createStatement();
 
             String sortOrder = request.getParameter("sort");
-            String sql = "SELECT r.resnum, c.firstname, c.lastname, ts.tid, ts.origin, ts.destination, r.date, r.totalfare, tl.tlname FROM reservationData r JOIN customer c ON r.cid = c.cid JOIN trainSchedule ts ON r.schid = ts.schid JOIN transitLine tl ON ts.tlid = tl.tlid";
+            String sql = "SELECT r.resnum, c.firstname, c.lastname, ts.tid, ts.origin, ts.destination, r.date, r.totalfare, tl.tlname, r.cancelled FROM reservationData r JOIN customer c ON r.cid = c.cid JOIN trainSchedule ts ON r.schid = ts.schid JOIN transitLine tl ON ts.tlid = tl.tlid WHERE r.cancelled = 0";
 
             if ("customerName".equals(sortOrder)) {
                 sql += " ORDER BY c.lastname, c.firstname";

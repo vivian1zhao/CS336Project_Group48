@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <td>Northeast Corridor</td>
-        <td>$14.44</td>
+        <td>$33.69</td>
     </tr>
 </table>
 
@@ -29,7 +29,7 @@
     </tr>
     <tr>
         <td>matt yun</td>
-        <td>$14.44</td>
+        <td>$33.69</td>
     </tr>
 </table>
 
