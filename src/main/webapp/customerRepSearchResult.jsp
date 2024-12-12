@@ -39,18 +39,34 @@
         <th>Arrival Time</th>
         <th>Travel Time</th>
         <th>Fare</th>
+        <th>Actions</th> <!-- Added Actions Column -->
     </tr>
 <%
                 while (rs.next()) {
+                    String tid = rs.getString("tid");
 %>
     <tr>
-        <td><%= rs.getString("tid") %></td>
+        <td><%= tid %></td>
         <td><%= rs.getString("origin") %></td>
         <td><%= rs.getString("destination") %></td>
         <td><%= rs.getString("departure") %></td>
         <td><%= rs.getString("arrival") %></td>
         <td><%= rs.getString("traveltime") %></td>
         <td><%= rs.getString("fare") %></td>
+        <!-- Edit and Delete Buttons -->
+        <td>
+            <!-- Edit Button -->
+            <form action="editTrainSchedule.jsp" method="GET" style="display:inline;">
+                <input type="hidden" name="tid" value="<%= tid %>" />
+                <button type="submit">Edit</button>
+            </form>
+
+            <!-- Delete Button -->
+            <form action="deleteTrainSchedule.jsp" method="POST" style="display:inline;">
+                <input type="hidden" name="tid" value="<%= tid %>" />
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this schedule?');">Delete</button>
+            </form>
+        </td>
     </tr>
 <%
                 }
@@ -60,6 +76,8 @@
         out.println("SQL Error: " + e.getMessage());
     }
 %>
+
+</table>
 
 <!-- Back Button -->
 <a href="homeCustomerRep.jsp"><button type="button">Back to Dashboard</button></a>
