@@ -29,7 +29,7 @@ II. Browsing and search functionality (15 points)
  
 III. Reservations (15 points)
   - [X] a customer should be able to make a reservation for a specific route (round-trip/one way) (5 points)
-  - [] get a discount in case of child/senior/disabled (2 points)
+  - [X] get a discount in case of child/senior/disabled (2 points)
   - [X] cancel existing reservation (3 points)
   - [X] view current and past reservations with their details (separately). (5 points)
  
