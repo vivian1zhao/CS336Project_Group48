@@ -55,7 +55,7 @@
     <tbody>
         <tr>
             <td>Matt</td>
-            <td>$14.44</td>
+            <td>$33.69</td>
         </tr>
     </tbody>
 </table>
