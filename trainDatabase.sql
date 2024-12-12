@@ -75,7 +75,7 @@ create table `trainScheduleStops` (
 `departureTime` time,
 primary key (`schid`, `sid`),
 foreign key (`schid`) references `trainSchedule`(`schid`) on delete cascade on update cascade,
-foreign key (`sid`) references `station`(`sid`) on delete cascade on update cascade),
+foreign key (`sid`) references `station`(`sid`) on delete cascade on update cascade,
 foreign key (`tlid`) references `transitLine`(`tlid`) on delete cascade on update cascade);
 
 drop table if exists `employeeAdmin`;
