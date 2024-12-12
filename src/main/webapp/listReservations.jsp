@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -16,10 +15,9 @@
         <input type="hidden" name="destination" value="<%= request.getParameter("destination") %>">
         <label for="sort">Sort by:</label>
         <select name="sort" onchange="this.form.submit()">
-        	<option value="">Select...</option>
-            <option value="arrival">Arrival Time</option>
-            <option value="departure">Departure Time</option>
-            <option value="fare">Fare</option>
+            <option value="">Select...</option>
+            <option value="customerName" <%= "customerName".equals(request.getParameter("sort")) ? "selected" : "" %>>Customer Name</option>
+            <option value="transitLine" <%= "transitLine".equals(request.getParameter("sort")) ? "selected" : "" %>>Transit Line</option>
         </select>
     </form>
     
@@ -36,9 +34,19 @@
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url, dbUsername, dbPassword);
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT r.resnum, c.firstname, c.lastname, ts.tid, ts.origin, ts.destination, r.date, r.totalfare FROM reservationData r JOIN customer c ON r.cid = c.cid JOIN trainSchedule ts ON r.schid = ts.schid");
 
-            out.println("<table border='1'><tr><th>Reservation Number</th><th>Customer</th><th>Train ID</th><th>Origin</th><th>Destination</th><th>Date</th><th>Total Fare</th></tr>");
+            String sortOrder = request.getParameter("sort");
+            String sql = "SELECT r.resnum, c.firstname, c.lastname, ts.tid, ts.origin, ts.destination, r.date, r.totalfare, tl.tlname FROM reservationData r JOIN customer c ON r.cid = c.cid JOIN trainSchedule ts ON r.schid = ts.schid JOIN transitLine tl ON ts.tlid = tl.tlid";
+
+            if ("customerName".equals(sortOrder)) {
+                sql += " ORDER BY c.lastname, c.firstname";
+            } else if ("transitLine".equals(sortOrder)) {
+                sql += " ORDER BY tl.tlname";
+            }
+
+            rs = stmt.executeQuery(sql);
+
+            out.println("<table border='1'><tr><th>Reservation Number</th><th>Customer</th><th>Train ID</th><th>Origin</th><th>Destination</th><th>Date</th><th>Total Fare</th><th>Transit Line</th></tr>");
             while (rs.next()) {
                 out.println("<tr>");
                 out.println("<td>" + rs.getInt("resnum") + "</td>");
@@ -48,13 +56,13 @@
                 out.println("<td>" + rs.getString("destination") + "</td>");
                 out.println("<td>" + rs.getDate("date") + "</td>");
                 out.println("<td>" + rs.getString("totalfare") + "</td>");
+                out.println("<td>" + rs.getString("tlname") + "</td>");
                 out.println("</tr>");
             }
             out.println("</table>");
         } catch (Exception e) {
             out.println("<p>Error: " + e.getMessage() + "</p>");
         } finally {
-        	
             if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
             if (stmt != null) try { stmt.close(); } catch (SQLException ignore) {}
             if (conn != null) try { conn.close(); } catch (SQLException ignore) {}

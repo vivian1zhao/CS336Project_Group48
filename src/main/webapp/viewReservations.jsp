@@ -55,7 +55,7 @@
                 <tr>
                     <td><%= rs.getInt("resnum") %></td>
                     <td><%= rs.getDate("date") %></td>
-                    <td><%= rs.getString("totalfare") %></td>
+                    <td><%= String.format("$%.2f", rs.getDouble("totalfare")) %></td>
                     <td><%= rs.getString("origin") %></td>
                     <td><%= rs.getString("destination") %></td>
                     <td><%= isCancelled ? "Cancelled" : "Active" %></td>
