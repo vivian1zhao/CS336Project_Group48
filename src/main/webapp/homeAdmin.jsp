@@ -24,6 +24,8 @@
             <br><a href="monthlySalesReport.jsp">View Monthly Sales Report</a>
             <br><a href="listReservations.jsp">List Reservations</a>
             <br><a href="activeTransitLines.jsp">Active Transit Lines</a>
+            <br><a href="bestCustomer.jsp">Best Customers</a>
+            
         </div>
 
         <div class="logout">
