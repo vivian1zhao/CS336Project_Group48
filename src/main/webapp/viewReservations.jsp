@@ -55,7 +55,12 @@
                 <tr>
                     <td><%= rs.getInt("resnum") %></td>
                     <td><%= rs.getDate("date") %></td>
-                    <td><%= String.format("$%.2f", rs.getDouble("totalfare")) %></td>
+                    <%
+					    String fare = rs.getString("totalfare");
+					    // Remove any non-numeric characters like '$'
+					    double numericFare = Double.parseDouble(fare.replaceAll("[^\\d.]", ""));
+					%>
+					<td>$<%= String.format("%.2f", numericFare) %></td>
                     <td><%= rs.getString("origin") %></td>
                     <td><%= rs.getString("destination") %></td>
                     <td><%= isCancelled ? "Cancelled" : "Active" %></td>
