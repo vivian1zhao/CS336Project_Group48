@@ -47,7 +47,7 @@
             while (rs.next()) {
                 String question = rs.getString("question");
                 String answer = rs.getString("answer");
-                out.println("<li><strong>Q:</strong> " + question + "<br/><strong>A:</strong> " + (answer != null ? answer : "12") + "</li>");
+                out.println("<li><strong>Q:</strong> " + question + "<br/><strong>A:</strong> " + (answer != null ? answer : "There are 14 trains.") + "</li>");
             }
             out.println("</ul>");
         }
